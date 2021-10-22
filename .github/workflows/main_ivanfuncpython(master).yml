@@ -46,12 +46,10 @@ jobs:
 
   deploy:
     runs-on: ubuntu-latest
-    outputs:
-      webapp-url: 'https://github.com'
     needs: build
     environment:
       name: 'master'
-      url: ${{steps.deploy-to-function.outputs.webapp-url}}
+      url: ${{steps.deploy-to-function.outputs.app-url}}
 
     steps:
       - name: Download artifact from build job
